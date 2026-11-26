@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lonelybanana.css">
+    <title>Lonely Banana</title>
+</head>
+
+<body>
+      <header class="top-header">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <h1 class="site-title">Lonely Banana</h1>
+        <nav id="site-menu">
+            <a href="#about-banana">About Lonely Banana</a>
+            <a href="#about-website">About Website</a>
+            <a href="#links">Socials</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img id="banana" src="banapfp.png" alt="Lonely Banana">
+            <p id="message" class="message">Lonely Banana is waiting for a friend.</p>
+            <button id="comfort-btn">Click to Comfort</button>
+            <p id="status" class="status" role="status"></p>
+
+            <div class="stats">
+                <div class="stat">
+                    <span id="total" class="stat-number">...</span>
+                    <span class="stat-label">comforts given</span>
+                </div>
+            </div>
+        </section>
+
+             <section id="about-banana" class="info">
+            <h2>About Lonely Banana</h2>
+            <p>Hi, I'm Lonely Banana. I'm just an ordinary person behind this little project. Sometimes, I feel lonely, and I don't always have someone to share my thoughts or ideas with. So I decided to create videos, tell little stories, and make random things that bring a bit of happiness into my day.
+
+Lonely Banana represents a little part of that feeling. A small banana sitting alone, hoping someone will come along and make his day a little brighter. Maybe some of you feel the same way sometimes. I created this character as a way to express those feelings, share my creativity, and distract myself from loneliness.
+
+I don't know how far this little project will go, but I'm happy to share it with anyone who comes across it. If you're feeling lonely too, I hope this little corner of the internet makes you feel a little less alone.
+
+Thank you for being here.</p>
+        </section>
+
+        <section id="about-website" class="info">
+            <h2>About Website</h2>
+            <p>This website is a little project I made to share something personal with everyone. Sometimes, life gets quiet, and there are moments when I feel lonely and have no one to talk to. I wanted to create something simple where people could share a little kindness, even through a single tap. Every tap adds to the total, reminding me that even the smallest actions can make someone feel less alone. Thank you for taking a moment to visit and be part of this little project.</p>
+        </section>
+
+
+        <section id="links" class="info">
+            <h2>Socials</h2>
+            <ul>
+                <li><a href="https://www.youtube.com/channel/UCZi0KBhKxp16QMEU5qww3xg">LonelyBanana YouTube</a></li>
+                <li><a href="https://www.instagram.com/lonelybanana.support?evlk=N2RqYzB0aG52OHdp&utm_source=qr">LonelyBanana Instagram</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="lonelybanana.js"></script>
+</body>
+</html>

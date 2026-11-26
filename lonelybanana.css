@@ -1,0 +1,343 @@
+:root {
+  --bg: #0e0e14;
+  --surface: #181822;
+  --text: #ecebf2;
+  --muted: #9b9aad;
+  --banana: #f7d63c;
+  --banana-dark: #d9b81c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+/* Header */
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px 24px;
+  padding: 14px 24px;
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--banana);
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--banana);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  border-bottom-color: var(--banana);
+}
+
+/* Three-line menu button (only shown on mobile) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid var(--banana);
+  border-radius: 12px;
+}
+
+.menu-toggle:hover {
+  background: rgba(247, 214, 60, 0.12);
+}
+
+.menu-toggle:active {
+  transform: scale(0.95);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--banana);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Turns into an X when open */
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  min-height: calc(100vh - 70px);
+  padding: 32px 16px;
+  text-align: center;
+}
+
+img {
+  width: 150px;
+  max-width: 60%;
+}
+
+#banana {
+  transition: transform 0.12s ease;
+}
+
+#banana.bounce {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.message {
+  margin: 0;
+  color: var(--muted);
+  min-height: 1.6em;
+}
+
+button {
+  font: inherit;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 14px 32px;
+  background-color: var(--banana);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+button:hover {
+  background-color: var(--banana-dark);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+.status {
+  margin: 0;
+  min-height: 1.4em;
+  color: #ff8a80;
+  font-size: 0.9rem;
+}
+
+/* Counter */
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: var(--banana);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Info sections */
+.info {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  scroll-margin-top: 70px;
+}
+
+.info h2 {
+  margin-top: 0;
+  color: var(--banana);
+}
+
+.info a {
+  color: var(--banana);
+}
+
+.info ul {
+  padding-left: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  #banana, button, .menu-toggle span { transition: none; }
+}
+
+/* ---------- Mobile view ---------- */
+
+/* Tablets and phones */
+@media (max-width: 700px) {
+  /* Header: menu icon on the upper left, title next to it */
+  .top-header {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 16px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .site-title {
+    flex: 1;
+    padding-right: 56px; /* balances the icon so the title looks centered */
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  /* Menu drops down under the header when the icon is tapped */
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 8px 0;
+    background-color: var(--surface);
+    border-bottom: 2px solid var(--banana);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 14px 20px;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    font-size: 1.05rem;
+  }
+
+  nav a:hover,
+  nav a:focus-visible {
+    background: rgba(247, 214, 60, 0.1);
+    border-left-color: var(--banana);
+  }
+
+  .hero {
+    min-height: calc(100svh - 66px);
+    gap: 18px;
+    padding: 24px 16px 40px;
+  }
+
+  img {
+    width: 180px;
+    max-width: 55vw;
+  }
+
+  .message {
+    font-size: 1rem;
+    max-width: 320px;
+  }
+
+  /* Big, easy-to-hit tap button */
+  #comfort-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 18px 24px;
+    font-size: 1.2rem;
+  }
+
+  .stat-number {
+    font-size: 2.8rem;
+  }
+
+  .info {
+    padding: 36px 20px;
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .site-title {
+    font-size: 1.15rem;
+  }
+
+  img {
+    width: 150px;
+  }
+
+  .stat-number {
+    font-size: 2.4rem;
+  }
+}
+
+/* Phones turned sideways: keep everything reachable */
+@media (max-height: 480px) and (orientation: landscape) {
+  .top-header {
+    position: relative;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
